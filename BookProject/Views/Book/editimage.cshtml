@@ -1,0 +1,26 @@
+﻿@model BookProject.ViewModels.AllBookViewModel
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Home</title>
+</head>
+<body>
+    <div>
+        @foreach (var item in @Model.BookViewModels)
+        {
+            <h1>@item.Title @item.Id</h1>
+            if (@item.ImagePath != "")
+            {
+                <img src="~/images/@item.ImagePath" />
+            }
+            <form enctype="multipart/form-data" asp-action="EditImage" asp-controller="Book"
+                  method="POST">
+                <input type="hidden" name="id" value="@item.Id" />
+                Add image: <input name="file" type="file"><br><br>
+                <input type="submit">
+            </form>
+        }
+    </div>
+</body>
+</html>

@@ -1,0 +1,10 @@
+﻿body {
+}
+img{
+    opacity:0.5;
+    transition:1s opacity;
+    border-radius:40px;
+}
+img:hover{
+    opacity:1;
+}
